@@ -1,0 +1,24 @@
+bcstaticshipping
+|-- datatypes
+|-- doc
+|   |-- INSTALL
+|   |-- LICENSE
+|   |-- README
+|   |-- TODO
+|   `-- tree.txt
+|-- eventtypes
+|   `-- event
+|       `-- bcstaticshipping
+|           `-- bcstaticshippingtype.php
+|-- modules
+|-- packages
+|   `-- shipped_product-1.0-1.ezpkg
+`-- settings
+    |-- content.ini.append.php
+    |-- datatype.ini.append.php
+    |-- design.ini.append.php
+    |-- module.ini.append.php
+    |-- site.ini.append.php
+    `-- workflow.ini.append.php
+
+8 directories, 13 files
