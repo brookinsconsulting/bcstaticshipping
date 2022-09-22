@@ -1,4 +1,4 @@
-;5A<?php
+<?php
 //
 // Definition of BCStaticShippingType class
 //
@@ -32,19 +32,20 @@
   \brief The class BCStaticShippingType handles adding shipping cost to an order
 */
 
-include_once( 'kernel/classes/ezorder.php' );
-include_once( 'lib/ezxml/classes/ezxml.php' );
-
-define( 'EZ_WORKFLOW_TYPE_BCSTATICSHIPPING_ID', 'bcstaticshipping' );
+//include_once( 'kernel/classes/ezorder.php' );
+//include_once( 'lib/ezxml/classes/ezxml.php' );
+//define( 'EZ_WORKFLOW_TYPE_BCSTATICSHIPPING_ID', 'bcstaticshipping' );
 
 class BCStaticShippingType extends eZWorkflowEventType
 {
+    const WORKFLOW_TYPE_STRING = 'bcstaticshipping';
+
     /*!
      Constructor
     */
-    function BCStaticShippingType()
+    function __construct()
     {
-        $this->eZWorkflowEventType( EZ_WORKFLOW_TYPE_BCSTATICSHIPPING_ID, ezi18n( 'kernel/workflow/event', "Static Shipping" ) );
+        parent::__construct( BCStaticShippingType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'kernel/workflow/event', "Static Shipping" ) );
         $this->setTriggerTypes( array( 'shop' => array( 'confirmorder' => array ( 'before' ) ) ) );
     }
 
@@ -685,10 +686,10 @@ class BCStaticShippingType extends eZWorkflowEventType
             $orderItem->store();
         }
 
-        return EZ_WORKFLOW_TYPE_STATUS_ACCEPTED;
+        return eZWorkflowType::STATUS_ACCEPTED;
     }
 }
 
-eZWorkflowEventType::registerType( EZ_WORKFLOW_TYPE_BCSTATICSHIPPING_ID, "bcstaticshippingtype" );
+eZWorkflowEventType::registerEventType( BCStaticShippingType::WORKFLOW_TYPE_STRING, "BCStaticShippingType" );
 
 ?>
